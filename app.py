@@ -1,12 +1,10 @@
-from flask import Flask, jsonify
+from fastapi import FastAPI
 
-app = Flask(__name__)
-
+app = FastAPI()
 
 @app.get("/")
-def health():
-    return jsonify({"status": "ok", "message": "my-api is running"})
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+def read_root():
+    return {
+        "message": "FastAPI is running 🚀",
+        "status": "ok"
+    }
